@@ -53,6 +53,9 @@ while (userAns !== exitNumber) {
         console.log(`${i + 1}. ${task}`);
       }
       break;
+    default:
+      console.log("Ingresa una opción valida.")
+      break;
   }
 }
 
