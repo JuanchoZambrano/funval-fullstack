@@ -11,7 +11,7 @@
 let nombreUsuario: string = "AlexCode";
 let seguidores: number = 250;
 let cuentaVerificada: boolean = true;
-console.log(nombreUsuario, seguidores, cuentaVerificada)
+console.log(nombreUsuario, seguidores, cuentaVerificada);
 
 /* --------------------------------------------------------------------------
    EJERCICIO 2: Calculadora de propinas simple
@@ -24,13 +24,13 @@ console.log(nombreUsuario, seguidores, cuentaVerificada)
    - Imprime 'totalPagar'.
    -------------------------------------------------------------------------- */
 
-   let montoCuenta: number = 80;
-   let porcentajePropina: number = 0.15;
-   let montoPropina:number = montoCuenta * porcentajePropina;
-   let totalPagar: number = montoCuenta + montoPropina;
-   console.log(totalPagar);
+let montoCuenta: number = 80;
+let porcentajePropina: number = 0.15;
+let montoPropina: number = montoCuenta * porcentajePropina;
+let totalPagar: number = montoCuenta + montoPropina;
+console.log(totalPagar);
 
-   /* --------------------------------------------------------------------------
+/* --------------------------------------------------------------------------
    EJERCICIO 3: El contador de visitas (Incremento y Decremento)
    Nivel: Básico
    Instrucciones:
@@ -40,12 +40,12 @@ console.log(nombreUsuario, seguidores, cuentaVerificada)
    - Imprime el valor final por consola.
    -------------------------------------------------------------------------- */
 
-   let visitasWeb: number = 10;
-   visitasWeb++;
-   visitasWeb--;
-   console.log(visitasWeb)
+let visitasWeb: number = 10;
+visitasWeb++;
+visitasWeb--;
+console.log(visitasWeb);
 
-   /* --------------------------------------------------------------------------
+/* --------------------------------------------------------------------------
    EJERCICIO 4: Actualización compuesta de inventario
    Nivel: Básico - Intermedio
    Instrucciones:
@@ -56,13 +56,13 @@ console.log(nombreUsuario, seguidores, cuentaVerificada)
    - Imprime el stock final.
    -------------------------------------------------------------------------- */
 
-   let stockProductos: number = 50;
-   stockProductos += 20;
-   stockProductos -= 8;
-   stockProductos *= 3;
-   console.log(stockProductos)
+let stockProductos: number = 50;
+stockProductos += 20;
+stockProductos -= 8;
+stockProductos *= 3;
+console.log(stockProductos);
 
-   /* --------------------------------------------------------------------------
+/* --------------------------------------------------------------------------
    EJERCICIO 5: Detector de números pares (Módulo / Residuo)
    Nivel: Básico - Intermedio
    Instrucciones:
@@ -73,11 +73,11 @@ console.log(nombreUsuario, seguidores, cuentaVerificada)
    - Imprime 'esPar'.
    -------------------------------------------------------------------------- */
 
-   let numeroEvaluado: number = 19;
-   let esPar: boolean = (numeroEvaluado % 2) === 0;
-   console.log(esPar);
+let numeroEvaluado: number = 19;
+let esPar: boolean = numeroEvaluado % 2 === 0;
+console.log(esPar);
 
-   /* --------------------------------------------------------------------------
+/* --------------------------------------------------------------------------
    EJERCICIO 6: Validador de mayoría de edad y permiso
    Nivel: Intermedio
    Instrucciones:
@@ -89,12 +89,12 @@ console.log(nombreUsuario, seguidores, cuentaVerificada)
    - Imprime 'puedeIngresar'.
    -------------------------------------------------------------------------- */
 
-   let edadCliente: number = 16;
-   let tienePermisoPadres: boolean = true;
-   let puedeIngresar: boolean = (edadCliente >= 18 || tienePermisoPadres === true);
-   console.log(puedeIngresar);
+let edadCliente: number = 16;
+let tienePermisoPadres: boolean = true;
+let puedeIngresar: boolean = edadCliente >= 18 || tienePermisoPadres === true;
+console.log(puedeIngresar);
 
-   /* --------------------------------------------------------------------------
+/* --------------------------------------------------------------------------
    EJERCICIO 7: Acceso a cajero automático (Operador AND estricto)
    Nivel: Intermedio
    Instrucciones:
@@ -107,13 +107,14 @@ console.log(nombreUsuario, seguidores, cuentaVerificada)
    - Imprime 'accesoPermitido'.
    -------------------------------------------------------------------------- */
 
-   let pinIngresado: number = 1234;
-   let pinCorrecto: number = 1234;
-   let tarjetaBloqueada: boolean = false;
-   let accesoPermitido: boolean = pinIngresado === pinCorrecto && !tarjetaBloqueada;
-   console.log(accesoPermitido)
+let pinIngresado: number = 1234;
+let pinCorrecto: number = 1234;
+let tarjetaBloqueada: boolean = false;
+let accesoPermitido: boolean =
+  pinIngresado === pinCorrecto && !tarjetaBloqueada;
+console.log(accesoPermitido);
 
-   /* --------------------------------------------------------------------------
+/* --------------------------------------------------------------------------
    EJERCICIO 8: Rango de temperatura operativa
    Nivel: Intermedio
    Instrucciones:
@@ -124,11 +125,12 @@ console.log(nombreUsuario, seguidores, cuentaVerificada)
    - Imprime 'climaAceptable'.
    -------------------------------------------------------------------------- */
 
-   let temperaturaInicial: number = 31;
-   let climaAceptable: boolean = temperaturaInicial > 18 && temperaturaInicial < 30;
-   console.log(climaAceptable);
+let temperaturaInicial: number = 31;
+let climaAceptable: boolean =
+  temperaturaInicial > 18 && temperaturaInicial < 30;
+console.log(climaAceptable);
 
-   /* --------------------------------------------------------------------------
+/* --------------------------------------------------------------------------
    EJERCICIO 9: Carrito con envío gratis
    Nivel: Intermedio
    Instrucciones:
@@ -140,12 +142,12 @@ console.log(nombreUsuario, seguidores, cuentaVerificada)
    - Imprime 'aplicaEnvioGratis'.
    -------------------------------------------------------------------------- */
 
-   let totalCarrito: number = 90;
-   let esMiembroPrime: boolean = true;
-   let aplicaEnvioGratis: boolean = totalCarrito >= 100 || esMiembroPrime;
-   console.log(aplicaEnvioGratis); 
+let totalCarrito: number = 90;
+let esMiembroPrime: boolean = true;
+let aplicaEnvioGratis: boolean = totalCarrito >= 100 || esMiembroPrime;
+console.log(aplicaEnvioGratis);
 
-   /* --------------------------------------------------------------------------
+/* --------------------------------------------------------------------------
    EJERCICIO 10: Validación de formulario de registro
    Nivel: Intermedio
    Instrucciones:
@@ -160,26 +162,27 @@ console.log(nombreUsuario, seguidores, cuentaVerificada)
    - Imprime 'formularioValido'.
    -------------------------------------------------------------------------- */
 
-   let longitudPassword: number = 8;
-   let aceptoTerminos: boolean = true;
-   let tieneEmailInvalido: boolean = false;
-   let formularioValido: boolean = longitudPassword >= 8 && aceptoTerminos || !tieneEmailInvalido;
-   console.log(formularioValido);
+let longitudPassword: number = 8;
+let aceptoTerminos: boolean = true;
+let tieneEmailInvalido: boolean = false;
+let formularioValido: boolean =
+  (longitudPassword >= 8 && aceptoTerminos) || !tieneEmailInvalido;
+console.log(formularioValido);
 
-   // 1. Declara la variable 'puntosDeVida' de tipo number con un valor inicial de 100.
+// 1. Declara la variable 'puntosDeVida' de tipo number con un valor inicial de 100.
 //    (Usa 'let' ya que su valor cambiará a lo largo del combate).
-   let puntosVida: number = 100;
+let puntosVida: number = 100;
 // 2. Declara la variable 'tieneEscudo' de tipo boolean con el valor true.
-   let tieneEscudo: boolean = false;
+let tieneEscudo: boolean = false;
 // 3. ¡Ataque enemigo! Resta 25 puntos de vida usando el operador de autoasignación '-='.
-   puntosVida -= 75;
+puntosVida -= 75;
 // 4. El personaje toma una poción mínima: incrementa 'puntosDeVida' en 1 usando '++'.
-   puntosVida++;
+puntosVida++;
 // 5. Declara una variable 'sigueVivo' de tipo boolean que evalúe si 'puntosDeVida' es mayor que 0.
-   let sigueVivo: boolean = puntosVida > 0;
+let sigueVivo: boolean = puntosVida > 0;
 // 6. Declara una variable 'alertaPeligro' de tipo boolean.
 //    Debe ser true solo si 'puntosDeVida' es menor a 50 Y el jugador NO tiene escudo (usa && y !).
-   let alertaPeligro: boolean = puntosVida < 50 && !tieneEscudo;
+let alertaPeligro: boolean = puntosVida < 50 && !tieneEscudo;
 // 7. Imprime en consola todos los resultados para verificar el estado final del jugador:
 //    - Puntos de vida actuales
 //    - Si tiene escudo activo
