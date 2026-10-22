@@ -37,13 +37,6 @@ const addTask = (title: string): Task => {
   };
 };
 
-const listTask = () => {
-  console.log("\n----LISTADO DE TAREAS-----\n");
-  for (let i = 0; i < tasks.length; i++) {
-    console.log(`[${tasks[i].id}] ${tasks[i].title} - ${tasks[i].completed}`);
-  }
-};
-
 const removeTask = () => {
   const removedTask = tasks.pop();
   if (removedTask) {
@@ -55,9 +48,56 @@ const removeTask = () => {
   }
 };
 
+const listTask = () => {
+  console.log("\n----LISTADO DE TAREAS-----\n");
+  const mappedList = tasks.map(({ id, title, completed }) => {
+    return `[${id}] Nombre: ${title}, Completed: ${completed}`;
+  });
+  mappedList.forEach((newList: string) => {
+    console.log(newList);
+  });
+};
+
+const markCompleted = (idByUser: number) => {
+  const task = tasks.find((t: Task) => t.id === idByUser);
+  if (task) {
+    task.completed = true;
+    console.log(`La tarea ${task.title} ha sido completada!`);
+  } else {
+    console.log(`No hay tareas con ese numero`);
+  }
+};
+
+const filterPending = () => {
+  console.log("\n----TAREAS PENDIENTES-----\n");
+
+  const filteredPendingTask = tasks.filter((t: Task) => t.completed === false);
+  const mapPendingTask = filteredPendingTask.map(({ id, title, completed }) => {
+    return `[${id}] - Nombre: ${title} - Completed: ${completed}`;
+  });
+  mapPendingTask.forEach((t: string) => {
+    console.log(t);
+  });
+};
+
+const filterCompleted = () => {
+  console.log("\n----TAREAS COMPLETADAS-----\n");
+
+  const filteredCompletedTask = tasks.filter(
+    ({ completed }) => completed === true,
+  );
+  const mapCompletedTask = filteredCompletedTask.map(
+    ({ id, title, completed }) =>
+      `[${id}] - Nombre: ${title} - Estado: ${completed}`,
+  );
+  mapCompletedTask.forEach((t: string) => {
+    console.log(t);
+  });
+};
+
 let contId: number = 0;
 let userAns: number = 0;
-const exitNumber: number = 4;
+const exitNumber: number = 7;
 
 while (userAns !== exitNumber) {
   userAns = Number(
@@ -68,7 +108,10 @@ while (userAns !== exitNumber) {
      1. Agregar tarea
      2. Eliminar última tarea                                
      3. Listar tareas
-     4. Salir
+     4. Completar tarea
+     5. Listar pendientes
+     6. Listar completadas
+     7. Salir
      ------------------------                              
      Opcion: `,
     ),
@@ -89,8 +132,20 @@ while (userAns !== exitNumber) {
       listTask();
       break;
     case 4:
-        console.log("\nNos vemos!")
-        break;
+      const completeTaskId = Number(
+        await rl.question("Ingresa el numero de la tarea que deseas guardar: "),
+      );
+      markCompleted(completeTaskId);
+      break;
+    case 5:
+      filterPending();
+      break;
+    case 6:
+      filterCompleted();
+      break;
+    case 7:
+      console.log(`Vuelve pronto!`);
+      break;
     default:
       console.log("Ingresa una opción valida.");
       break;
