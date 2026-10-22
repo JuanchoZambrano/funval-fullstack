@@ -397,8 +397,8 @@ const puntajes: number[] = [45, 88, 105, 112, 99, 140];
 // TU CÓDIGO AQUÍ:
 
 const puntajesFind = puntajes.find((n: number) => {
-    return n > 100 && n % 2 === 0;
-})
+  return n > 100 && n % 2 === 0;
+});
 
 console.log(puntajesFind);
 
@@ -443,6 +443,14 @@ const carrito: ProductoCarrito[] = [
 
 // TU CÓDIGO AQUÍ:
 
+const reto18 = carrito.findIndex((c: ProductoCarrito) => c.sku === "SKU-990");
+if (reto18 !== -1) {
+  carrito[reto18].cantidad++;
+} else {
+  console.log(`Producto no encontrado.`);
+}
+console.log(carrito);
+
 // ----------------------------------------------------------------------------
 // [19] PROFE (DEMO) - INTEGRADOR: filter + map encadenados
 // Consigna: De una lista de estudiantes, filtrar solo a los que aprobaron
@@ -468,3 +476,12 @@ const catalogoAlmacen: ProductoStock[] = [
 ];
 
 // TU CÓDIGO AQUÍ:
+
+const listaCatalogoFiltrada = catalogoAlmacen // uniendo metodos
+  .filter((p: ProductoStock) => p.stock > 0)
+  .map(
+    (p: ProductoStock) =>
+      `Producto: ${p.nombre} | Unidades disponibles: ${p.stock}`,
+  );
+
+console.log(listaCatalogoFiltrada);
