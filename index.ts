@@ -28,23 +28,45 @@ interface Task {
 
 const tasks: Task[] = [];
 
-const addTask = (title: string): Task => {
-  contId++;
-  return {
-    id: contId,
-    title: title,
-    completed: false,
-  };
-};
+function saveToDB(tarea: Task): Promise<string> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(`Tarea: ${tarea.title} se agregó exitosamente`);
+    }, 2000);
+  });
+}
+
+async function addTask(title: string): Promise<Task> {
+  try {
+    if (title === "") {
+      throw new Error("\nEl titulo de la tarea no puede estar vacio\n");
+    }
+
+    const newTask: Task = {
+      id: contId + 1,
+      title: title,
+      completed: false,
+    };
+
+    console.log("\nAgregando tarea...");
+    await saveToDB(newTask);
+    contId++;
+
+    return newTask;
+  } catch (error: any) {
+    console.log(`\nError al agregar la tarea: ${error.message}\n`);
+    throw error;
+  }
+}
 
 const removeTask = () => {
   const removedTask = tasks.pop();
   if (removedTask) {
     console.log(
-      `\nSe ha eliminado la tarea ${removedTask.title} exitosamente!`,
+      `\nSe ha eliminado la tarea ${removedTask.title} exitosamente!\n`,
     );
   } else {
-    console.log("\nNo hay tareas por borrar.");
+    console.log("\nTarea no encontrada.\n");
   }
 };
 
@@ -62,9 +84,9 @@ const markCompleted = (idByUser: number) => {
   const task = tasks.find((t: Task) => t.id === idByUser);
   if (task) {
     task.completed = true;
-    console.log(`La tarea ${task.title} ha sido completada!`);
+    console.log(`\nLa tarea ${task.title} ha sido completada!\n`);
   } else {
-    console.log(`No hay tareas con ese numero`);
+    console.log(`\nTarea no encontrada.\n`);
   }
 };
 
@@ -122,8 +144,11 @@ while (userAns !== exitNumber) {
       const newTaskTitle: string = await rl.question(
         "\nIngresa el titulo de la tarea: ",
       );
-      tasks.push(addTask(newTaskTitle));
-      console.log(`\n${newTaskTitle} - se agregó exitosamente!\n`);
+      try {
+        const addingTask = await addTask(newTaskTitle);
+        tasks.push(addingTask);
+        console.log(`\n${newTaskTitle} - se agregó exitosamente!\n`);
+      } catch (error) {}
       break;
     case 2:
       removeTask();
